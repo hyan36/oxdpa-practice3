@@ -102,6 +102,7 @@ public class BoardController extends AbstractController{
 			int row =  getLastEmptyGrid(col); 
 			Node newNode = "Yellow".equals(p.getName()) ? this.pieceBuilder.drawYellow(radious) : this.pieceBuilder.drawRed(radious);		
 			gridPane.add(newNode, col, row);
+			return;
 		}
 		System.out.println("we have a winner");
 	}
