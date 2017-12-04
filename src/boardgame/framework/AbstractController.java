@@ -12,6 +12,8 @@ public abstract class AbstractController {
 	
 	protected Map<Enum<?>, AbstractController> controllers;
 	
+	protected String controllerName;
+	
 	@FXML
 	protected Pane main;
 	
@@ -25,7 +27,7 @@ public abstract class AbstractController {
 	
 	@FXML
 	protected void initialize() {	
-		this.getClass();
+		this.controllerName = this.getClass().getName();
 		this.prepare();
 		this.draw();
 	}
