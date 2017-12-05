@@ -5,6 +5,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
+/**
+ * We can use as many as kind of piece on board, can be rendered dynamically as a vector / a static image. 
+ * 
+ * use builder pattern so it can be replaced by other logic easily
+ * 
+ * @author HaihaoY
+ *
+ */
 public class PieceBuilder implements IPieceBuilder {
 	
 	protected Node draw(Paint color, double radious) {
