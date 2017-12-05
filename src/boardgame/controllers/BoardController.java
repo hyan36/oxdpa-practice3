@@ -8,6 +8,8 @@ import boardgame.Player;
 import boardgame.common.util.IPieceBuilder;
 import boardgame.framework.AbstractController;
 import boardgame.framework.Config;
+import boardgame.framework.interfaces.IResetable;
+import boardgame.framework.interfaces.IResizable;
 import boardgame.impl.BoardgameFactoryImpl;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -15,7 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 
-public class BoardController extends AbstractController {
+public class BoardController extends AbstractController implements IResetable {
 
 	public IPieceBuilder pieceBuilder;
 
@@ -53,8 +55,8 @@ public class BoardController extends AbstractController {
 		double height = this.board.getHeight() * this.radious * 2;
 		this.gridPane.setPrefWidth(width);
 		this.gridPane.setPrefHeight(height);
-		((RootController) this.getController(Config.ROOTCONTROLLER)).resize(width + 10, height + 40);
-
+		//change it to interface so there won't be hardcoded reference between RootController and BoardController
+		((IResizable) this.getController(Config.ROOTCONTROLLER)).resize(width + 10, height + 40);
 	}
 
 	@Override

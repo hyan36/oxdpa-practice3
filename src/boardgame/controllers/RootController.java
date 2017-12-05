@@ -4,9 +4,10 @@ import java.util.Map;
 
 import boardgame.framework.AbstractController;
 import boardgame.framework.Config;
+import boardgame.framework.interfaces.*;
 import javafx.fxml.FXML;
 
-public class RootController extends AbstractController {
+public class RootController extends AbstractController implements IResizable {
 	
 	protected Double width;
 	
@@ -23,7 +24,7 @@ public class RootController extends AbstractController {
 	
 	@FXML
 	private void restart() {
-		((BoardController) this.getController(Config.BORDCONTROLLER)).restart();
+		((IResetable) this.getController(Config.BORDCONTROLLER)).restart();
 	}
 	
 	public void resize(double width, double height) {
